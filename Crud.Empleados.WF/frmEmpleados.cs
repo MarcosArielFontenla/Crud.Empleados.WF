@@ -24,48 +24,51 @@ namespace Crud.Empleados.WF
         private void btnSalir_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Saliendo de la aplicación...");
-            Application.Exit();
+            Close();
         }
 
         private void frmEmpleados_Load(object sender, EventArgs e)
         {
-            cargar();
+            MostrarEmpleados();
         }
-        private void cargar()
+
+        private void MostrarEmpleados()
         {
-            PersonaNegocio negocio = new PersonaNegocio();
-            dgvEmpleados.DataSource = negocio.listar();
+            var negocio = new PersonaNegocio();
+            dgvEmpleados.DataSource = negocio.GetPersonas();
         }
-        
 
         private void btnGuardar_Click(object sender, EventArgs e) // guarda el ingreso del usuario, siempre y cuando NO SALTE al catch 
         {
-            Persona alta = new Persona();
-            PersonaNegocio negocio = new PersonaNegocio();
+            var nuevaPersona = new Persona();
+            var negocio = new PersonaNegocio();
+
             try
             {
-                alta.Nombre = tbNombre.Text;
-                alta.Apellido = tbApellido.Text;
-                alta.Edad = int.Parse(tbEdad.Text);
-                alta.Cargo = tbCargo.Text;
-                alta.Proyecto = tbProyecto.Text;
-
-                negocio.guardar(alta);
+                nuevaPersona.Nombre = tbNombre.Text;
+                nuevaPersona.Apellido = tbApellido.Text;
+                nuevaPersona.Edad = int.Parse(tbEdad.Text);
+                nuevaPersona.Cargo = tbCargo.Text;
+                nuevaPersona.Proyecto = tbProyecto.Text;
+                negocio.GuardarPersona(nuevaPersona);
+                
                 MessageBox.Show("Agregado exitosamente");
-
-                cargar();
-
+                MostrarEmpleados();
+                LimpiarCampos();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
-
             }
-
-
-
         }
 
-       
+        private void LimpiarCampos()
+        {
+            tbNombre.Text = "";
+            tbApellido.Text = "";
+            tbEdad.Text = "";
+            tbCargo.Text = "";
+            tbProyecto.Text = "";
+        }
     }
 }

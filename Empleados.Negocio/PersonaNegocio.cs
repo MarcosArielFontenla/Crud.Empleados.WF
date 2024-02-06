@@ -14,71 +14,67 @@ namespace Empleados.Negocio
     public class PersonaNegocio
 
     {
-        public List<Persona> listar() // conexion a la base de datos
+        public List<Persona> GetPersonas() // conexion a la base de datos
         {
-            List<Persona> lista = new List<Persona>();
+            List<Persona> listaPersonas = new List<Persona>();
             SqlConnection conexion = new SqlConnection();
             SqlCommand comando = new SqlCommand();
-            SqlDataReader lector;
+            SqlDataReader reader;
 
             try
             {
-                conexion.ConnectionString = "server=.\\SQLEXPRESS; database=Empleados_DB; integrated security = true";
+                conexion.ConnectionString = "server=DESKTOP-J6DPR7A; database=Empleados_DB; integrated security = true";
                 comando.CommandType = System.Data.CommandType.Text;
-                comando.CommandText = "Select Nombre, Apellido, Edad, Cargo, Proyecto From Empleados";
+                comando.CommandText = "SELECT Nombre, Apellido, Edad, Cargo, Proyecto FROM Empleados";
                 comando.Connection = conexion;
 
                 conexion.Open();
-                lector = comando.ExecuteReader();
+                reader = comando.ExecuteReader();
 
-                while(lector.Read()) 
+                while(reader.Read()) 
                 {
-                    Persona aux = new Persona();
-                    aux.Nombre = (string)lector["Nombre"];
-                    aux.Apellido = (string)lector["Apellido"];
-                    aux.Edad = lector.GetInt32(2);
-                    aux.Cargo = (string)lector["Cargo"];
-                    aux.Proyecto = (string)lector["Proyecto"];
+                    Persona persona = new Persona();
+                    persona.Nombre = (string)reader["Nombre"];
+                    persona.Apellido = (string)reader["Apellido"];
+                    persona.Edad = reader.GetInt32(2);
+                    persona.Cargo = (string)reader["Cargo"];
+                    persona.Proyecto = (string)reader["Proyecto"];
 
-                    lista.Add(aux);
+                    listaPersonas.Add(persona);
                 }
-
                 conexion.Close();
-                return lista;
+                return listaPersonas;
 
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
 
         }
 
-        public void guardar(Persona nueva) //  para insertar el registro a la base de datos
+        public void GuardarPersona(Persona nuevaPersona) //  para insertar el registro a la base de datos
         {
-            AccesoDatos datos = new AccesoDatos();
+            var datos = new AccesoDatos();
+
             try
             {
-                datos.setearConsulta("insert into Empleados(Nombre, Apellido, Edad, Cargo, Proyecto)values('" + nueva.Nombre + "','" + nueva.Apellido + "', " + nueva.Edad + ",'" + nueva.Cargo + "','" + nueva.Proyecto + "')");
-                datos.ejecutarAccion();
+                datos.SetQuery($"INSERT INTO Empleados(Nombre, Apellido, Edad, Cargo, Proyecto) VALUES('{nuevaPersona.Nombre}', '{nuevaPersona.Apellido}', {nuevaPersona.Edad}, '{nuevaPersona.Cargo}', '{nuevaPersona.Proyecto}')");
+                datos.EjecutarAccion();
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
             finally
             {
-                datos.cerrarConexion();
+                datos.CerrarConexion();
             }
         }
-        public void editar (Persona modificar)
+
+        public void EditarPersona(Persona editarPersona)
         {
-
+            // to-do
         }
-
-
-
     }
 }

@@ -12,40 +12,41 @@ namespace Empleados.Negocio
         //para hacer la lectura
         private SqlConnection conexion; 
         private SqlCommand comando;
-        private SqlDataReader lector;
-        public SqlDataReader Lector
-        {
-            get { return lector; }
-        }
-        public AccesoDatos() 
-        {
-            conexion = new SqlConnection("server=.\\SQLEXPRESS; database=Empleados_DB; integrated security = true");
-            comando = new SqlCommand();
+        private SqlDataReader dr;
 
+        public SqlDataReader Reader
+        {
+            get { return dr; }
         }
-        public void setearConsulta(string consulta)
+
+        public AccesoDatos()
+        {
+            conexion = new SqlConnection("server=DESKTOP-J6DPR7A; database=Empleados_DB; integrated security = true");
+            comando = new SqlCommand();
+        }
+
+        public void SetQuery(string query)
         {
             comando.CommandType = System.Data.CommandType.Text;
-            comando.CommandText = consulta;
+            comando.CommandText = query;
         }
       
-        public void ejecutarlectura()
+        public void EjecutarReader()
         {
             comando.Connection = conexion;
+
             try
             {
-            conexion.Open();
-            lector = comando.ExecuteReader();
-
+                conexion.Open();
+                dr = comando.ExecuteReader();
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
         }
         
-        public void ejecutarAccion()
+        public void EjecutarAccion()
         {
             try
             {
@@ -55,20 +56,16 @@ namespace Empleados.Negocio
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
         }
 
-
-
-        public void cerrarConexion()
+        public void CerrarConexion()
         {
-            if (lector != null)
-                lector.Close();
+            if (dr != null)
+                dr.Close();
+
             conexion.Close();
         }
-
-        
     }
 }
