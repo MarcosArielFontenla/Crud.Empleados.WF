@@ -52,7 +52,6 @@
     <Compile Include="frmEmpleados.Designer.cs">
       <DependentUpon>frmEmpleados.cs</DependentUpon>
     </Compile>
-    <Compile Include="Persona.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmEmpleados.resx">
@@ -79,6 +78,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Empleados.Data\Empleados.Data.csproj">
+      <Project>{b37f3ecc-97f5-4b17-bef9-23bd07c329bd}</Project>
+      <Name>Empleados.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Empleados.Negocio\Empleados.Negocio.csproj">
+      <Project>{c46d0f33-d799-4936-8527-ef15b9ac50ff}</Project>
+      <Name>Empleados.Negocio</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

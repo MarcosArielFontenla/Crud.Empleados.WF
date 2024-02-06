@@ -4,13 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Crud.Empleados.WF
+namespace Empleados.Data
 {
-    internal class Persona
+    public class Persona
     {
         public string Nombre { get; set; }
         public string Apellido { get; set; }
         public int Edad { get; set; }
+        public string Cargo { get; set; }
         public string Proyecto { get; set; }
     }
 }

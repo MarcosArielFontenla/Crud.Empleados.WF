@@ -30,28 +30,28 @@
         {
             this.tlpPrincipal = new System.Windows.Forms.TableLayoutPanel();
             this.pGrilla = new System.Windows.Forms.Panel();
-            this.pDatos = new System.Windows.Forms.Panel();
-            this.lblTitulo = new System.Windows.Forms.Label();
-            this.dgvEmpleados = new System.Windows.Forms.DataGridView();
-            this.btnEditar = new System.Windows.Forms.Button();
-            this.btnEliminar = new System.Windows.Forms.Button();
-            this.btnSalir = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
-            this.lblNombre = new System.Windows.Forms.Label();
-            this.lblApellido = new System.Windows.Forms.Label();
-            this.lblEdad = new System.Windows.Forms.Label();
-            this.lblCargo = new System.Windows.Forms.Label();
-            this.lblProyecto = new System.Windows.Forms.Label();
-            this.btnGuardar = new System.Windows.Forms.Button();
-            this.tbNombre = new System.Windows.Forms.TextBox();
-            this.tbApellido = new System.Windows.Forms.TextBox();
-            this.tbEdad = new System.Windows.Forms.TextBox();
-            this.tbCargo = new System.Windows.Forms.TextBox();
+            this.btnSalir = new System.Windows.Forms.Button();
+            this.btnEliminar = new System.Windows.Forms.Button();
+            this.btnEditar = new System.Windows.Forms.Button();
+            this.dgvEmpleados = new System.Windows.Forms.DataGridView();
+            this.lblTitulo = new System.Windows.Forms.Label();
+            this.pDatos = new System.Windows.Forms.Panel();
             this.tbProyecto = new System.Windows.Forms.TextBox();
+            this.tbCargo = new System.Windows.Forms.TextBox();
+            this.tbEdad = new System.Windows.Forms.TextBox();
+            this.tbApellido = new System.Windows.Forms.TextBox();
+            this.tbNombre = new System.Windows.Forms.TextBox();
+            this.btnGuardar = new System.Windows.Forms.Button();
+            this.lblProyecto = new System.Windows.Forms.Label();
+            this.lblCargo = new System.Windows.Forms.Label();
+            this.lblEdad = new System.Windows.Forms.Label();
+            this.lblApellido = new System.Windows.Forms.Label();
+            this.lblNombre = new System.Windows.Forms.Label();
             this.tlpPrincipal.SuspendLayout();
             this.pGrilla.SuspendLayout();
-            this.pDatos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmpleados)).BeginInit();
+            this.pDatos.SuspendLayout();
             this.SuspendLayout();
             // 
             // tlpPrincipal
@@ -87,6 +87,65 @@
             this.pGrilla.Size = new System.Drawing.Size(608, 576);
             this.pGrilla.TabIndex = 0;
             // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(457, 504);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(86, 34);
+            this.button4.TabIndex = 3;
+            this.button4.Text = "button4";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // btnSalir
+            // 
+            this.btnSalir.Location = new System.Drawing.Point(325, 504);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(86, 34);
+            this.btnSalir.TabIndex = 2;
+            this.btnSalir.Text = "Salir";
+            this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.Location = new System.Drawing.Point(195, 504);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(86, 34);
+            this.btnEliminar.TabIndex = 1;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.UseVisualStyleBackColor = true;
+            // 
+            // btnEditar
+            // 
+            this.btnEditar.Location = new System.Drawing.Point(66, 504);
+            this.btnEditar.Name = "btnEditar";
+            this.btnEditar.Size = new System.Drawing.Size(86, 34);
+            this.btnEditar.TabIndex = 0;
+            this.btnEditar.Text = "Editar";
+            this.btnEditar.UseVisualStyleBackColor = true;
+            // 
+            // dgvEmpleados
+            // 
+            this.dgvEmpleados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvEmpleados.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dgvEmpleados.Location = new System.Drawing.Point(24, 47);
+            this.dgvEmpleados.MultiSelect = false;
+            this.dgvEmpleados.Name = "dgvEmpleados";
+            this.dgvEmpleados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvEmpleados.Size = new System.Drawing.Size(554, 391);
+            this.dgvEmpleados.TabIndex = 4;
+    
+            // 
+            // lblTitulo
+            // 
+            this.lblTitulo.AutoSize = true;
+            this.lblTitulo.Font = new System.Drawing.Font("Microsoft PhagsPa", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitulo.Location = new System.Drawing.Point(33, 23);
+            this.lblTitulo.Name = "lblTitulo";
+            this.lblTitulo.Size = new System.Drawing.Size(156, 21);
+            this.lblTitulo.TabIndex = 0;
+            this.lblTitulo.Text = "Lista de empleados";
+            // 
             // pDatos
             // 
             this.pDatos.BackColor = System.Drawing.SystemColors.ButtonFace;
@@ -108,97 +167,50 @@
             this.pDatos.Size = new System.Drawing.Size(382, 576);
             this.pDatos.TabIndex = 1;
             // 
-            // lblTitulo
+            // tbProyecto
             // 
-            this.lblTitulo.AutoSize = true;
-            this.lblTitulo.Font = new System.Drawing.Font("Microsoft PhagsPa", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.Location = new System.Drawing.Point(33, 23);
-            this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(156, 21);
-            this.lblTitulo.TabIndex = 0;
-            this.lblTitulo.Text = "Lista de empleados";
+            this.tbProyecto.Location = new System.Drawing.Point(113, 216);
+            this.tbProyecto.Name = "tbProyecto";
+            this.tbProyecto.Size = new System.Drawing.Size(240, 20);
+            this.tbProyecto.TabIndex = 4;
             // 
-            // dgvEmpleados
+            // tbCargo
             // 
-            this.dgvEmpleados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvEmpleados.Location = new System.Drawing.Point(24, 47);
-            this.dgvEmpleados.Name = "dgvEmpleados";
-            this.dgvEmpleados.Size = new System.Drawing.Size(562, 391);
-            this.dgvEmpleados.TabIndex = 4;
+            this.tbCargo.Location = new System.Drawing.Point(113, 178);
+            this.tbCargo.Name = "tbCargo";
+            this.tbCargo.Size = new System.Drawing.Size(240, 20);
+            this.tbCargo.TabIndex = 3;
             // 
-            // btnEditar
+            // tbEdad
             // 
-            this.btnEditar.Location = new System.Drawing.Point(66, 504);
-            this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(86, 34);
-            this.btnEditar.TabIndex = 0;
-            this.btnEditar.Text = "Editar";
-            this.btnEditar.UseVisualStyleBackColor = true;
+            this.tbEdad.Location = new System.Drawing.Point(113, 137);
+            this.tbEdad.Name = "tbEdad";
+            this.tbEdad.Size = new System.Drawing.Size(240, 20);
+            this.tbEdad.TabIndex = 2;
             // 
-            // btnEliminar
+            // tbApellido
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(195, 504);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(86, 34);
-            this.btnEliminar.TabIndex = 1;
-            this.btnEliminar.Text = "Eliminar";
-            this.btnEliminar.UseVisualStyleBackColor = true;
+            this.tbApellido.Location = new System.Drawing.Point(113, 97);
+            this.tbApellido.Name = "tbApellido";
+            this.tbApellido.Size = new System.Drawing.Size(240, 20);
+            this.tbApellido.TabIndex = 1;
             // 
-            // btnSalir
+            // tbNombre
             // 
-            this.btnSalir.Location = new System.Drawing.Point(325, 504);
-            this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(86, 34);
-            this.btnSalir.TabIndex = 2;
-            this.btnSalir.Text = "Salir";
-            this.btnSalir.UseVisualStyleBackColor = true;
-            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
+            this.tbNombre.Location = new System.Drawing.Point(113, 56);
+            this.tbNombre.Name = "tbNombre";
+            this.tbNombre.Size = new System.Drawing.Size(240, 20);
+            this.tbNombre.TabIndex = 0;
             // 
-            // button4
+            // btnGuardar
             // 
-            this.button4.Location = new System.Drawing.Point(457, 504);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(86, 34);
-            this.button4.TabIndex = 3;
-            this.button4.Text = "button4";
-            this.button4.UseVisualStyleBackColor = true;
-            // 
-            // lblNombre
-            // 
-            this.lblNombre.AutoSize = true;
-            this.lblNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNombre.Location = new System.Drawing.Point(47, 56);
-            this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(47, 13);
-            this.lblNombre.TabIndex = 0;
-            this.lblNombre.Text = "Nombre:";
-            // 
-            // lblApellido
-            // 
-            this.lblApellido.AutoSize = true;
-            this.lblApellido.Location = new System.Drawing.Point(50, 100);
-            this.lblApellido.Name = "lblApellido";
-            this.lblApellido.Size = new System.Drawing.Size(47, 13);
-            this.lblApellido.TabIndex = 1;
-            this.lblApellido.Text = "Apellido:";
-            // 
-            // lblEdad
-            // 
-            this.lblEdad.AutoSize = true;
-            this.lblEdad.Location = new System.Drawing.Point(50, 144);
-            this.lblEdad.Name = "lblEdad";
-            this.lblEdad.Size = new System.Drawing.Size(35, 13);
-            this.lblEdad.TabIndex = 2;
-            this.lblEdad.Text = "Edad:";
-            // 
-            // lblCargo
-            // 
-            this.lblCargo.AutoSize = true;
-            this.lblCargo.Location = new System.Drawing.Point(53, 185);
-            this.lblCargo.Name = "lblCargo";
-            this.lblCargo.Size = new System.Drawing.Size(38, 13);
-            this.lblCargo.TabIndex = 3;
-            this.lblCargo.Text = "Cargo:";
+            this.btnGuardar.Location = new System.Drawing.Point(93, 383);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(218, 55);
+            this.btnGuardar.TabIndex = 5;
+            this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // lblProyecto
             // 
@@ -209,50 +221,42 @@
             this.lblProyecto.TabIndex = 4;
             this.lblProyecto.Text = "Proyecto:";
             // 
-            // btnGuardar
+            // lblCargo
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(91, 383);
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(218, 55);
-            this.btnGuardar.TabIndex = 5;
-            this.btnGuardar.Text = "Guardar";
-            this.btnGuardar.UseVisualStyleBackColor = true;
-            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
+            this.lblCargo.AutoSize = true;
+            this.lblCargo.Location = new System.Drawing.Point(53, 185);
+            this.lblCargo.Name = "lblCargo";
+            this.lblCargo.Size = new System.Drawing.Size(38, 13);
+            this.lblCargo.TabIndex = 3;
+            this.lblCargo.Text = "Cargo:";
             // 
-            // tbNombre
+            // lblEdad
             // 
-            this.tbNombre.Location = new System.Drawing.Point(113, 56);
-            this.tbNombre.Name = "tbNombre";
-            this.tbNombre.Size = new System.Drawing.Size(240, 20);
-            this.tbNombre.TabIndex = 0;
+            this.lblEdad.AutoSize = true;
+            this.lblEdad.Location = new System.Drawing.Point(50, 144);
+            this.lblEdad.Name = "lblEdad";
+            this.lblEdad.Size = new System.Drawing.Size(35, 13);
+            this.lblEdad.TabIndex = 2;
+            this.lblEdad.Text = "Edad:";
             // 
-            // tbApellido
+            // lblApellido
             // 
-            this.tbApellido.Location = new System.Drawing.Point(113, 97);
-            this.tbApellido.Name = "tbApellido";
-            this.tbApellido.Size = new System.Drawing.Size(240, 20);
-            this.tbApellido.TabIndex = 1;
+            this.lblApellido.AutoSize = true;
+            this.lblApellido.Location = new System.Drawing.Point(50, 100);
+            this.lblApellido.Name = "lblApellido";
+            this.lblApellido.Size = new System.Drawing.Size(47, 13);
+            this.lblApellido.TabIndex = 1;
+            this.lblApellido.Text = "Apellido:";
             // 
-            // tbEdad
+            // lblNombre
             // 
-            this.tbEdad.Location = new System.Drawing.Point(113, 137);
-            this.tbEdad.Name = "tbEdad";
-            this.tbEdad.Size = new System.Drawing.Size(240, 20);
-            this.tbEdad.TabIndex = 2;
-            // 
-            // tbCargo
-            // 
-            this.tbCargo.Location = new System.Drawing.Point(113, 178);
-            this.tbCargo.Name = "tbCargo";
-            this.tbCargo.Size = new System.Drawing.Size(240, 20);
-            this.tbCargo.TabIndex = 3;
-            // 
-            // tbProyecto
-            // 
-            this.tbProyecto.Location = new System.Drawing.Point(113, 216);
-            this.tbProyecto.Name = "tbProyecto";
-            this.tbProyecto.Size = new System.Drawing.Size(240, 20);
-            this.tbProyecto.TabIndex = 4;
+            this.lblNombre.AutoSize = true;
+            this.lblNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNombre.Location = new System.Drawing.Point(47, 56);
+            this.lblNombre.Name = "lblNombre";
+            this.lblNombre.Size = new System.Drawing.Size(47, 13);
+            this.lblNombre.TabIndex = 0;
+            this.lblNombre.Text = "Nombre:";
             // 
             // frmEmpleados
             // 
@@ -266,12 +270,13 @@
             this.Name = "frmEmpleados";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CRUD EMPLEADOS";
+            this.Load += new System.EventHandler(this.frmEmpleados_Load);
             this.tlpPrincipal.ResumeLayout(false);
             this.pGrilla.ResumeLayout(false);
             this.pGrilla.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEmpleados)).EndInit();
             this.pDatos.ResumeLayout(false);
             this.pDatos.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvEmpleados)).EndInit();
             this.ResumeLayout(false);
 
         }
