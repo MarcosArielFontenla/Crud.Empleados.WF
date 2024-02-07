@@ -15,6 +15,7 @@ namespace Empleados.Negocio.Services
 
         public EmpleadoService()
         {
+            _accesoDatos = new AccesoDatos();
         }
 
         public List<Empleado> GetEmpleadosService()

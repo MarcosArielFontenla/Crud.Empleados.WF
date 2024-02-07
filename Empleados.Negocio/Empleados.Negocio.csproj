@@ -41,9 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AccesoDatos.cs" />
-    <Compile Include="PersonaNegocio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\EmpleadoService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Empleados.Data\Empleados.Data.csproj">

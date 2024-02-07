@@ -30,7 +30,7 @@
         {
             this.tlpPrincipal = new System.Windows.Forms.TableLayoutPanel();
             this.pGrilla = new System.Windows.Forms.Panel();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btnLimpiar = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
@@ -74,7 +74,7 @@
             // pGrilla
             // 
             this.pGrilla.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.pGrilla.Controls.Add(this.button4);
+            this.pGrilla.Controls.Add(this.btnLimpiar);
             this.pGrilla.Controls.Add(this.btnSalir);
             this.pGrilla.Controls.Add(this.btnEliminar);
             this.pGrilla.Controls.Add(this.btnEditar);
@@ -87,14 +87,15 @@
             this.pGrilla.Size = new System.Drawing.Size(608, 576);
             this.pGrilla.TabIndex = 0;
             // 
-            // button4
+            // btnLimpiar
             // 
-            this.button4.Location = new System.Drawing.Point(457, 504);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(86, 34);
-            this.button4.TabIndex = 3;
-            this.button4.Text = "button4";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnLimpiar.Location = new System.Drawing.Point(457, 504);
+            this.btnLimpiar.Name = "btnLimpiar";
+            this.btnLimpiar.Size = new System.Drawing.Size(86, 34);
+            this.btnLimpiar.TabIndex = 3;
+            this.btnLimpiar.Text = "Limpiar";
+            this.btnLimpiar.UseVisualStyleBackColor = true;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
             // btnSalir
             // 
@@ -136,6 +137,7 @@
             this.dgvEmpleados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvEmpleados.Size = new System.Drawing.Size(554, 391);
             this.dgvEmpleados.TabIndex = 4;
+            this.dgvEmpleados.SelectionChanged += new System.EventHandler(this.dgvEmpleados_SelectionChanged);
             // 
             // lblTitulo
             // 
@@ -287,7 +289,7 @@
         private System.Windows.Forms.TableLayoutPanel tlpPrincipal;
         private System.Windows.Forms.Panel pGrilla;
         private System.Windows.Forms.Panel pDatos;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnEditar;

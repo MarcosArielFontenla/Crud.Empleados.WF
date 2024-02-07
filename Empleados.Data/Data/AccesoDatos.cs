@@ -113,20 +113,18 @@ namespace Empleados.Data.Data
 
             using (SqlConnection conexion = new SqlConnection(_conexionString))
             {
-                conexion.Open();
-
-                SqlCommand comando = new SqlCommand(query, conexion);
-                comando.Parameters.AddWithValue("@Id", editarEmpleado.Id);
-                comando.Parameters.AddWithValue("@Nombre", editarEmpleado.Nombre);
-                comando.Parameters.AddWithValue("@Apellido", editarEmpleado.Apellido);
-                comando.Parameters.AddWithValue("@Edad", editarEmpleado.Edad);
-                comando.Parameters.AddWithValue("@Cargo", editarEmpleado.Cargo);
-                comando.Parameters.AddWithValue("@Proyecto", editarEmpleado.Proyecto);
-                comando.ExecuteNonQuery();
-
                 try
                 {
                     conexion.Open();
+
+                    SqlCommand comando = new SqlCommand(query, conexion);
+                    comando.Parameters.AddWithValue("@Id", editarEmpleado.Id);
+                    comando.Parameters.AddWithValue("@Nombre", editarEmpleado.Nombre);
+                    comando.Parameters.AddWithValue("@Apellido", editarEmpleado.Apellido);
+                    comando.Parameters.AddWithValue("@Edad", editarEmpleado.Edad);
+                    comando.Parameters.AddWithValue("@Cargo", editarEmpleado.Cargo);
+                    comando.Parameters.AddWithValue("@Proyecto", editarEmpleado.Proyecto);
+
                     comando.ExecuteNonQuery();
                     conexion.Close();
                 }
@@ -143,14 +141,11 @@ namespace Empleados.Data.Data
 
             using (SqlConnection conexion = new SqlConnection(_conexionString))
             {
-                conexion.Open();
-
-                SqlCommand comando = new SqlCommand(query, conexion);
-                comando.Parameters.AddWithValue("@Id", id);
-
                 try
                 {
                     conexion.Open();
+                    SqlCommand comando = new SqlCommand(query, conexion);
+                    comando.Parameters.AddWithValue("@Id", id);
                     comando.ExecuteNonQuery();
                     conexion.Close();
                 }

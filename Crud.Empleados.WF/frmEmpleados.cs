@@ -23,6 +23,7 @@ namespace Crud.Empleados.WF
         public frmEmpleados()
         {
             InitializeComponent();
+            _empleadoService = new EmpleadoService();
         }
 
         private void frmEmpleados_Load(object sender, EventArgs e)
@@ -33,27 +34,42 @@ namespace Crud.Empleados.WF
         private void btnGuardar_Click(object sender, EventArgs e) 
         {
             GuardarEmpleado();
-            MostrarEmpleados();
-            LimpiarCampos();
+            RefreshData();
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
             EditarEmpleado();
-            MostrarEmpleados();
-            LimpiarCampos();
+            RefreshData();
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             EliminarEmpleado();
-            MostrarEmpleados();
+            RefreshData();
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            LimpiarCampos();
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Saliendo de la aplicación...");
             Close();
+        }
+
+        private void dgvEmpleados_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dgvEmpleados.CurrentRow != null)
+            {
+                tbNombre.Text = dgvEmpleados.CurrentRow.Cells["Nombre"].Value.ToString();
+                tbApellido.Text = dgvEmpleados.CurrentRow.Cells["Apellido"].Value.ToString();
+                tbEdad.Text = dgvEmpleados.CurrentRow.Cells["Edad"].Value.ToString();
+                tbCargo.Text = dgvEmpleados.CurrentRow.Cells["Cargo"].Value.ToString();
+                tbProyecto.Text = dgvEmpleados.CurrentRow.Cells["Proyecto"].Value.ToString();
+            }
         }
 
         private void MostrarEmpleados()
@@ -91,19 +107,35 @@ namespace Crud.Empleados.WF
 
         private void EditarEmpleado()
         {
-            var empleado = new Empleado
-            {
-                Id = Convert.ToInt32(dgvEmpleados.CurrentRow.Cells[0].Value),
-                Nombre = tbNombre.Text,
-                Apellido = tbApellido.Text,
-                Edad = Convert.ToInt32(tbEdad.Text),
-                Cargo = tbCargo.Text,
-                Proyecto = tbProyecto.Text
-            };
-
             try
             {
-                _empleadoService.EditarEmpleadoService(empleado);
+                if (dgvEmpleados.CurrentRow != null && dgvEmpleados.CurrentRow.Cells[0].Value != null)
+                {
+                    int id;
+
+                    if (int.TryParse(dgvEmpleados.CurrentRow.Cells[0].Value.ToString(), out id))
+                    {
+                        var empleado = new Empleado
+                        {
+                            Id = id,
+                            Nombre = tbNombre.Text,
+                            Apellido = tbApellido.Text,
+                            Edad = Convert.ToInt32(tbEdad.Text),
+                            Cargo = tbCargo.Text,
+                            Proyecto = tbProyecto.Text
+                        };
+
+                        _empleadoService.EditarEmpleadoService(empleado);
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se ha seleccionado un empleado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Seleccione una fila antes de editar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             catch (Exception ex)
             {
@@ -113,7 +145,7 @@ namespace Crud.Empleados.WF
 
         private void EliminarEmpleado()
         {
-            var id = Convert.ToInt32(dgvEmpleados.CurrentRow.Cells[0].Value);
+            var id = Convert.ToInt32(dgvEmpleados.CurrentRow.Cells["Id"].Value);
 
             try
             {
@@ -132,6 +164,12 @@ namespace Crud.Empleados.WF
             tbEdad.Text = "";
             tbCargo.Text = "";
             tbProyecto.Text = "";
+        }
+
+        private void RefreshData()
+        {
+            MostrarEmpleados();
+            LimpiarCampos();
         }
     }
 }
